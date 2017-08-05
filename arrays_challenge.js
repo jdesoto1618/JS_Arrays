@@ -1,92 +1,97 @@
-//Create a function that finds the highest number.
+//Function that finds the highest number.
 function highestNumber(array) {
   var sorted = array.sort(function(a,b) {
-   return a-b
+   return a-b //loops through array and places a before b
   })
-  var length = sorted.length
-  console.log(sorted[length-1]) //Grab the last index AFTER sorting
+  var length = sorted.length;
+  // var ind = sorted.indexOf(length-1);
+  console.log(sorted[length-1]) //Grab the last number after sorting
 }
 
-//Create a function that finds the lowest number.
+//Function that finds the lowest number.
 function lowestNumber(array) {
   var sorted = array.sort(function(a,b) {
-   return b-a
+   return b-a //loops through array and puts b before a
   })
   var length = sorted.length
   console.log(sorted[length-1])
 }
 
-//Create a function that finds the smallest number (the closest to zero).
-var a2 = []
-function smallestNumber(array) {
-    array.forEach(function(el) {
-      a2.push(Math.abs(el))
-    	a2.sort()
-    })
-    return a2[0]
-}
-smallestNumber([4,5,0]);
+//Function that finds the smallest number (the closest to zero).
+// var a2 = []
+// function smallestNumber(array) {
+//     array.forEach(function(el) {
+//       a2.push(Math.abs(el)) //make all numbers positive first
+//     	a2.sort() //sort this array so the smallest one is where it's expected
+//     })
+//     console.log(a2);
+//     return a2[0]
+// }
+// smallestNumber([4,5,0]);
 
-//Create a function that calculate the sum.
-var total = 0
+//Function that calculate the sum.
 function sum(array) {
-  for (var i = 0; i <= array.length-1; i++) {
-    total += array[i]
+  var total = 0;
+  length = array.length; //find the length first so the program only does this step once
+  for (var i = 0; i <= length-1; i++) {
+    total += array[i] //take total's value and add on to it the next one in the passed in array
   }
   return total
 }
 
-// var arr = [1,2,3,4];
-// var total=0;
-// for(var i in arr) { total += arr[i]; }
+//Function that calculate the mean value.
 
-//Create a function that calculate the mean value.
-
-var total = 0
 function mean(array) {
-  for (var i = 0; i <= array.length-1; i++) {
-    total += array[i]
+  var total = 0;
+  var length = array.length; //Program does this step only once
+  for (var i = 0; i <= length-1; i++) {
+    total += array[i] //Determine the sum of the passed in array. Will use this to find the mean.
   }
-  return total/(array.length)
+  return total/(length) //Find the mean in this step
 }
 
-//Create a function that finds the index of the highest number.
+//Function that finds the index of the highest number.
 
 function indexHighest(array) {
-  return array.indexOf(Math.max(...array))
+  var sorted = array.sort(function(a,b) {
+   return a-b //loops through array and places a before b
+  })
+  //Now that the array is sorted, grab the index of the highest number
+  var length = sorted.length;
+  console.log(sorted.indexOf(sorted[length-1]));
 }
 
 //Array of Strings
 
-var parentsNames = ["Joe", "Cindy", "Roland", "Sheila"]
-var siblingsNames = ["Marika", "Sibling2", "Fred"]
+var parentsNames = ["Joe", "Cindy", "Roland", "Sheila"];
+var siblingsNames = ["Marika", "Sibling2", "Fred"];
 
-var sibSort = siblingsNames.sort() //in alphabetically order
+var sibSort = siblingsNames.sort(); //alphabetical order
 
-var parentsSort = parentsNames.sort().reverse() //in reverse alphabetical
+var parentSort = parentsNames.sort().reverse(); //reverse alphabetical order
 
-var combined = parentsNames.concat(siblingsNames) //combine arrays
+var combined = parentsNames.concat(siblingsNames); //combine arrays
 
-combined.sort() //alphebetize
+combined.sort(); //alphebetize
 
-combined.sort().reverse()
+combined.sort().reverse(); //reverse alphabetize
 
-//Create a function that determines if a given name is amongst the names.
-var enteredName = prompt("What name are you looking for?")
+//Given the above concatenated array, create a function that determines if a user inputted name is part of the concatenated array
+var enteredName = prompt("What name are you looking for?");
 function isMember(name) {
-  return name === enteredName
+  return name === enteredName; //returns true or false, based on what the user enters. This will compare the users name entry to the concatenated array and return true or false. That will be utilized in the subsequent if statement
 }
 if (combined.some(isMember)) {
-    console.log (enteredName + " is in the list!")
-  } else {
-    console.log (enteredName + " is NOT in the list.")
-  }
+    console.log (enteredName + " is in the list!");
+} else {
+  console.log (enteredName + " is NOT in the list.");
+}
 
-  //Advanced Functions
+//Advanced Functions//
 
 //Create a function that returns an array with only the even elements from the array.
-var evenArray = []
 function getEvens(array) {
+  var evenArray = [];
   array.forEach(function(a) {
     if(a%2 === 0) {
       evenArray.push(a)
@@ -100,9 +105,19 @@ function getEvens(array) {
 }
 
 
-//Create a function that returns an array with only the odd elements from the array.
-var oddsArray = []
+//Create a function that returns an array with the elements at even indices.
+function evenIndices(arr) {
+	evens = [];
+	length = arr.length;
+	for (var i = 0; i < length; i +=2) {
+		evens.push(arr[i]);
+    }
+	return evens;
+}
+
+//Create a function that returns an array with only the odd elements from the array, not the odd indices!
 function getOdds(array) {
+  var oddsArray = [];
   array.forEach(function(a) {
     if(a%2 === 1) {
       oddsArray.push(a)
@@ -115,6 +130,16 @@ function getOdds(array) {
   }
 }
 
+
+//Create a function that returns an array with the elements at odd indices.
+function oddIndices(arr) {
+	odds = [];
+	length = arr.length;
+	for (var i = 1; i < length; i +=2) {
+		odds.push(arr[i]);
+    }
+	return odds;
+}
 
 //Create a function that takes an array and a function, and returns a new array with the return value of the function on each of the elements of the array.
 
