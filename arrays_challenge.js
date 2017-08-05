@@ -4,7 +4,6 @@ function highestNumber(array) {
    return a-b //loops through array and places a before b
   })
   var length = sorted.length;
-  // var ind = sorted.indexOf(length-1);
   console.log(sorted[length-1]) //Grab the last number after sorting
 }
 
@@ -40,7 +39,6 @@ function sum(array) {
 }
 
 //Function that calculate the mean value.
-
 function mean(array) {
   var total = 0;
   var length = array.length; //Program does this step only once
@@ -51,7 +49,6 @@ function mean(array) {
 }
 
 //Function that finds the index of the highest number.
-
 function indexHighest(array) {
   var sorted = array.sort(function(a,b) {
    return a-b //loops through array and places a before b
@@ -62,7 +59,6 @@ function indexHighest(array) {
 }
 
 //Array of Strings
-
 var parentsNames = ["Joe", "Cindy", "Roland", "Sheila"];
 var siblingsNames = ["Marika", "Sibling2", "Fred"];
 
